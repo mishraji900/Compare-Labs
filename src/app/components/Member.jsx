@@ -18,9 +18,9 @@ const Member = ({ name, about, git, linked, insta, img, role }) => {
   return (
     <div className='' >
       <ReactCardFlip flipDirection='horizontal' isFlipped={isFlip}>
-        <div className='bg-white p-4 rounded-lg shadow-md flex w-32 md:w-80 md:h-[465px] h-72 flex-col text-center'>
+        <div className='bg-white p-4 rounded-lg shadow-md flex w-32 md:w-80 md:h-[465px] h-64 flex-col text-center'>
           <div className='md:w-72 w-24'>
-            <img src={img} alt="" className='rounded-2xl md:w-72 md:h-80 w-24' />
+            <img src={img} alt="" className='md:rounded-2xl rounded-full md:w-72 md:h-80 w-24 h-24' />
           </div>
           <h2 className='md:text-2xl text-base font-bold'>{name}</h2>
           <p className='font-bold font-custom text-sm'>{role}</p>
