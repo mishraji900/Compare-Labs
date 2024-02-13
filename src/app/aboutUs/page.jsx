@@ -9,7 +9,7 @@ import Project from '../components/Project';
 import ReactCardFlip from 'react-card-flip';
 
 const MembersSection = ({ member }) => (
-  <div className='xl:flex xl:flex-row grid grid-cols-2 space-y-4 md:space-x-5 h-fit xl:justify-evenly justify-items-center '>
+  <div className='xl:flex xl:flex-row grid grid-cols-2 gap-4 h-fit xl:justify-evenly justify-center'>
     {member.map((member, index) => (
       <Member key={index} {...member} />
     ))}
@@ -70,7 +70,7 @@ const page = () => {
     }
   ]
   return (
-    <div className='h-screen px-10' id='aboutUs'>
+    <div className=' max-h-fit px-10' id='aboutUs'>
       <div>
         <h1 className='md:text-5xl text-3xl text-center my-4 font-bold text-white font-custom'>About Us</h1>
       </div>
@@ -79,7 +79,7 @@ const page = () => {
         {activeSection === 'projects' && <Project project={project} />}
         {activeSection === 'members' && <MembersSection member={member} />}
 
-        <div className='flex justify-center mt-4 space-x-6'>
+        <div className='flex justify-center mt-10 space-x-6'>
           <VscProject
             className={`text-3xl mx-1 cursor-pointer ${activeSection === 'projects' ? 'text-pink-600' : 'text-gray-400'}`}
             onClick={() => setActiveSection('projects')} />

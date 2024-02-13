@@ -12,13 +12,13 @@ const Member = ({ name, about, git, linked, insta, img, role }) => {
     // Set a timer to revert the card back after 10 seconds
     setTimeout(() => {
       setIsFlip(false);
-    }, 7000); // 10 seconds in milliseconds
+    }, 5000); // 10 seconds in milliseconds
   };
 
   return (
-    <div className='' >
+    <div className='mx-auto' >
       <ReactCardFlip flipDirection='horizontal' isFlipped={isFlip}>
-        <div className='bg-white p-4 rounded-lg shadow-md flex w-32 md:w-80 md:h-[465px] h-64 flex-col text-center'>
+        <div className='bg-white p-4 rounded-lg shadow-md flex w-36 md:w-80 md:h-[465px] h-64 flex-col text-center'>
           <div className='md:w-72 w-24'>
             <img src={img} alt="" className='md:rounded-2xl rounded-full md:w-72 md:h-80 w-24 h-24' />
           </div>
@@ -43,7 +43,7 @@ const Member = ({ name, about, git, linked, insta, img, role }) => {
           </div>
 
         </div>
-        <div className='bg-pink-500 text-lg text-white p-4 rounded-lg shadow-md text-center leading-snug md:font-medium w-80 h-[465px]'>
+        <div className='bg-pink-500/30 text-lg text-white p-4 rounded-lg shadow-md text-center leading-snug md:font-medium w-80 h-[465px]'>
           <div>
             {about}
           </div>
