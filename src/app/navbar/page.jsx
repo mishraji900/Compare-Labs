@@ -35,12 +35,12 @@ const Navbar = () => {
     },
     {
       id: 3,
-      name: "AboutUs",
+      name: "About Us",
       link: "/aboutUs",
     },
     {
       id: 4,
-      name: "ContactUs",
+      name: "Contact Us",
       link: "/contactUs",
     },
   ];
