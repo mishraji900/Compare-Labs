@@ -1,7 +1,19 @@
 "use client"
 import React, { useState } from 'react';
 import Select from 'react-select';
-import Button from '../components/Button';
+
+import { FiCommand } from "react-icons/fi";
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import DatePicker from '@/components/ui/DatePicker';
+import { ComboboxDemo } from '@/components/ui/Combobox';
 
 const customStyles = {
   option: (base, { isFocused }) => ({
@@ -17,14 +29,14 @@ const Page = () => {
     { value: 'Tokyo', label: 'Tokyo' },
     // Add more options as needed
   ];
-  
+
   const destinationOptions = [
     { value: 'Paris', label: 'Paris' },
     { value: 'Sydney', label: 'Sydney' },
     { value: 'Dubai', label: 'Dubai' },
     // Add more options as needed
   ];
-  
+
   const airlineOptions = [
     { value: 'Emirates', label: 'Emirates' },
     { value: 'Delta', label: 'Delta' },
@@ -49,67 +61,36 @@ const Page = () => {
   };
 
   return (
-    <div id='predict' className='h-screen mx-10 rounded-3xl px-5 flex flex-col justify-center items-center'>
-      <h1 className='text-5xl text-center my-4 font-bold text-white font-custom'>Find what you need!</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 p-5 bg-pink-600/10 rounded-3xl w-full max-w-3xl'>
-        <div className='text-white p-4 rounded-lg'>
-          <form action="" className='space-y-6 text-lg font-custom'>
-            <div className='space-x-4 font-medium'>
-              <label>Date of Arrival</label>
-              <input type="date" name="date of arrival" className='p-2 rounded-3xl text-black border border-gray-300 focus:outline-none focus:border-pink-500' />
-            </div>
-            <div className='space-x-4 font-medium'>
-              <label>Date of Departure</label>
-              <input type="date" name="date of departure" className='p-2 rounded-3xl text-black border border-gray-300 focus:outline-none focus:border-pink-500' />
-            </div>
-            <div className='space-x-4 font-medium'>
-              <label>Source</label>
-              <Select
-                id="source-select"
-                instanceId='source-select'
-                value={source}
-                onChange={handleSourceChange}
-                options={sourceOptions}
-                isSearchable={true}
-                styles={customStyles}
-                className='text-gray-700 rounded-3xl'
-              />
-            </div>
-            <div className='space-x-4 font-medium'>
-              <label>Destination</label>
-              <Select
-                id="destination-select"
-                instanceId='destination-select'
-                value={destination}
-                onChange={handleDestinationChange}
-                options={destinationOptions}
-                isSearchable={true}
-                styles={customStyles}
-                className='text-gray-700 rounded-3xl'
-              />
-            </div>
-            <div className='space-x-4 font-medium'>
-              <label>Which Airline you want</label>
-              <Select
-                id="airline-select"
-                instanceId='airline-select'
-                value={airline}
-                onChange={handleAirlineChange}
-                options={airlineOptions}
-                isSearchable={true}
-                styles={customStyles}
-                className='text-gray-700 rounded-3xl'
-              />
-            </div>
-            <Button className='bg-white hover:bg-pink-600 hover:text-white text-black font-sans w-full rounded-full' text="Submit ->" link='/#predict' />
-          </form>
-        </div>
-        <div className='text-white p-4 rounded-lg'>
-          result
-        </div>
-      </div>
+    <div id='predict' className='h-screen rounded-3xl px-5 flex flex-col justify-center w-screen items-center'>
+      <h1 className='md:text-5xl text-3xl text-center my-4 font-bold font-custom'>Find what you need!</h1>
+      <Card className='rounded-3xl w-full max-w-[70vw] mt-8 h-[60vh]'>
+        <CardContent className='flex  flex-col p-10 items-center justify-evenly h-[60vh]'>
+            <form action="" className='w-full flex text-lg font-custom  flex-wrap md:space-x-4 space-y-3'>
+              <div className='font-medium flex-col flex'>
+                <DatePicker text={"Pick Booking Date"}/>
+              </div>
+              <div className='font-medium flex-col flex'>
+                <DatePicker text={"Pick Journy date"}/>
+              </div>
+              <div className='font-medium flex-col flex'>
+                <ComboboxDemo placeholder={"From ...."}/>
+              </div>
+              <div className='font-medium flex-col flex'>
+                <ComboboxDemo placeholder={"To ...."}/>
+              </div>
+              <div className='font-medium flex flex-col'>
+                <ComboboxDemo placeholder={"Select Airlines"}/>
+              </div>
+              <Button>Submit</Button>
+            </form>
+          <div className='p-4 h-[50vh] rounded-lg flex items-center'>
+          <FiCommand className="loading-icon" />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
+
 
 export default Page;

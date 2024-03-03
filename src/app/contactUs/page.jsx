@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const EmailSection = () => {
@@ -38,76 +39,63 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative px-10 lg:px-36"
+      className="flex md:flex-row flex-col items-center space-y-8 lg:space-x-5 justify-center lg:mx-auto mx-auto mt-20 mb-32 container h-[70vh] pt-80  md:pt-40 w-screen"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
+      <div className="w-[70vw] md:w-[50vw] h-[50vh]">
+        <h5 className="text-3xl font-bold dark:text-[#7C3AED] text-[#2563EB] my-2">
           Let&apos;s Connect
         </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
+        <p className="dark:text-gray-300 mb-4 max-w-md">
           {" "}
           We are currently looking for new opportunities, our inbox is always
           open. Whether you have a question or just want to say hi, well
           try our best to get back to you!
         </p>
+        <div>
+          <Image src="/contact.svg" width={400} height={400} alt="contact"  />
+        </div>
       </div>
-      <div>
+      <div className="w-[70vw] md:w-[50vw] h-[50vh] border border-gray-500 rounded-2xl p-4 lg:p-10">
         {emailSubmitted ? (
           <p className="text-green-500 text-sm mt-2">
             Email sent successfully!
           </p>
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form className="flex flex-col " onSubmit={handleSubmit}>
             <div className="mb-6">
-              <label
-                htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium"
-              >
-                Your email
-              </label>
+              
               <input
                 name="email"
                 type="email"
                 id="email"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9]  text-sm rounded-lg block w-full p-2.5"
                 placeholder="jacob@google.com"
               />
             </div>
             <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Subject
-              </label>
+              
               <input
                 name="subject"
                 type="text"
                 id="subject"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9]  text-sm rounded-lg block w-full p-2.5"
                 placeholder="Just saying hi"
               />
             </div>
             <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Message
-              </label>
+              
               <textarea
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
             </div>
             <button
               type="submit"
-              className=" bg-[#ffc0cb] hover:bg-pink-600 text-black font-custom font-semibold text-lg hover:text-white  py-2.5 px-5 rounded-lg w-full"
+              className=" dark:bg-[#7C3AED] bg-[#2563EB] hover:dark:bg-[#7C3AED]/70 hover:bg-[#2563EB]/80 font-custom font-semibold text-lg text-white  py-2.5 px-5 rounded-lg w-full"
             >
               Send Message
             </button>
