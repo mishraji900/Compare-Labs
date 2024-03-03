@@ -65,7 +65,7 @@ const Page = () => {
       <h1 className='md:text-5xl text-3xl text-center my-4 font-bold font-custom'>Find what you need!</h1>
       <Card className='rounded-3xl w-full max-w-[70vw] mt-8 h-[60vh]'>
         <CardContent className='flex  flex-col p-10 items-center justify-evenly h-[60vh]'>
-            <form action="" className='w-full flex text-lg font-custom  flex-wrap md:space-x-4 space-y-3'>
+            <form action="" className='w-full flex text-lg font-custom  flex-wrap md:space-x-4 md:space-y-0 space-y-3'>
               <div className='font-medium flex-col flex'>
                 <DatePicker text={"Pick Booking Date"}/>
               </div>
